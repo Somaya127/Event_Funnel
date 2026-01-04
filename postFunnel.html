@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل الدورة - قاعدة النور</title>
+    <meta name="description" content="احصل على تفاصيل دورة قاعدة النور لتأسيس الأطفال على القرآن">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="page-header">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html">الرئيسية</a>
+                <span class="separator">›</span>
+                <a href="middleFirst.html">التفاصيل</a>
+                <span class="separator">›</span>
+                <a href="bottom.html">قرار الحجز</a>
+                <span class="separator">›</span>
+                <span class="current">تفاصيل الدورة</span>
+            </nav>
+            <h1>لا مشكلة!</h1>
+            <p class="subtitle">احصل على تفاصيل الدورة والرسوم على واتساب أو تحميل ملف تعريفي</p>
+        </div>
+    </header>
+    
+    <main class="main-content">
+        <div class="container">
+            <section class="understanding-message">
+                <div class="understanding-card">
+                    <div class="understanding-icon">
+                        <span class="icon">🤝</span>
+                    </div>
+                    <h2>نفهم أنك تحتاج وقت للتفكير</h2>
+                    <p>نحن هنا لمساعدتك في اتخاذ القرار المناسب لطفلك</p>
+                </div>
+            </section>
+            
+            <section class="quick-summary">
+                <h2>ملخص سريع لدورة قاعدة النور</h2>
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <span class="icon">👶</span>
+                        <div class="summary-content">
+                            <h3>العمر المستهدف</h3>
+                            <p>5-8 سنوات</p>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <span class="icon">👩‍🏫</span>
+                        <div class="summary-content">
+                            <h3>المعلمة</h3>
+                            <p>سميّه البعول</p>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <span class="icon">📅</span>
+                        <div class="summary-content">
+                            <h3>الجدول</h3>
+                            <p>أحد/ثلاثاء/خميس مسائي</p>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <span class="icon">👥</span>
+                        <div class="summary-content">
+                            <h3>المجموعات</h3>
+                            <p>8 أطفال كحد أقصى</p>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <span class="icon">📍</span>
+                        <div class="summary-content">
+                            <h3>الموقع</h3>
+                            <p>مركز كفرعان القرآني</p>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <span class="icon">🎯</span>
+                        <div class="summary-content">
+                            <h3>الهدف</h3>
+                            <p>تأسيس القراءة بطلاقة</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="contact-options">
+                <h2>كيف تريد الحصول على التفاصيل؟</h2>
+                <div class="options-grid">
+                    <div class="option-card primary">
+                        <div class="option-header">
+                            <div class="option-icon">
+                                <span class="icon">💬</span>
+                            </div>
+                            <h3>واتساب فوري</h3>
+                            <p>احصل على التفاصيل والرسوم مباشرة على واتساب</p>
+                        </div>
+                        <div class="option-benefits">
+                            <ul>
+                                <li>رد سريع خلال دقائق</li>
+                                <li>تفاصيل الرسوم الشهرية</li>
+                                <li>مواعيد الجلسات المتاحة</li>
+                                <li>إمكانية طرح الأسئلة مباشرة</li>
+                            </ul>
+                        </div>
+                        <form id="whatsappForm" class="whatsapp-form">
+                            <div class="form-group">
+                                <label for="phoneNumber">رقم واتساب (اختياري)</label>
+                                <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="مثال: 0791234567">
+                                <small>سنرسل لك التفاصيل على هذا الرقم</small>
+                            </div>
+                            <button type="submit" class="cta-button primary">
+                                أرسلوا التفاصيل على واتساب
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div class="option-card secondary">
+                        <div class="option-header">
+                            <div class="option-icon">
+                                <span class="icon">📄</span>
+                            </div>
+                            <h3>ملف تعريفي PDF</h3>
+                            <p>حمّل ملف يحتوي على كل تفاصيل الدورة</p>
+                        </div>
+                        <div class="option-benefits">
+                            <ul>
+                                <li>ملف شامل لمراجعته لاحقاً</li>
+                                <li>يمكن مشاركته مع العائلة</li>
+                                <li>يحتوي على كل المعلومات</li>
+                                <li>متوفر للقراءة في أي وقت</li>
+                            </ul>
+                        </div>
+                        <button onclick="downloadPDF()" class="cta-button secondary">
+                            <span class="icon">⬇️</span>
+                            <span>تحميل ملف الدورة PDF</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="reassurance">
+                <h2>لماذا تختار قاعدة النور؟</h2>
+                <div class="reassurance-grid">
+                    <div class="reassurance-item">
+                        <div class="reassurance-icon">
+                            <span class="icon">🏆</span>
+                        </div>
+                        <h3>خبرة مثبتة</h3>
+                        <p>أكثر من 50 طفلاً تم تأسيسهم بنجاح</p>
+                    </div>
+                    
+                    <div class="reassurance-item">
+                        <div class="reassurance-icon">
+                            <span class="icon">💝</span>
+                        </div>
+                        <h3>اهتمام فردي</h3>
+                        <p>مجموعات صغيرة لضمان تركيز عالي</p>
+                    </div>
+                    
+                    <div class="reassurance-item">
+                        <div class="reassurance-icon">
+                            <span class="icon">📚</span>
+                        </div>
+                        <h3>منهجية علمية</h3>
+                        <p>تأسيس صحيح خطوة بخطوة</p>
+                    </div>
+                    
+                    <div class="reassurance-item">
+                        <div class="reassurance-icon">
+                            <span class="icon">🤲</span>
+                        </div>
+                        <h3>بيئة آمنة</h3>
+                        <p>مجموعات منفصلة للبنين والبنات</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="final-contact">
+                <div class="contact-content">
+                    <h2>هل لديك أسئلة عاجلة؟</h2>
+                    <p>يمكنك التواصل معنا مباشرة على واتساب أو الهاتف</p>
+                    <div class="contact-buttons">
+                        <a href="https://wa.me/962791951134?text=أريد الاستفسار عن دورة قاعدة النور" 
+                           class="contact-button whatsapp" 
+                           onclick="trackEvent('whatsapp_click')">
+                            <span class="icon">💬</span>
+                            <span>واتساب مباشر</span>
+                        </a>
+                        <a href="tel:+962791951134" 
+                           class="contact-button phone" 
+                           onclick="trackEvent('phone_click')">
+                            <span class="icon">📞</span>
+                            <span>اتصل الآن</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="return-options">
+                <h2>غير رأيك؟</h2>
+                <p>يمكنك العودة لبدء الحجز في أي وقت</p>
+                <div class="return-buttons">
+                    <a href="bottom.html" class="cta-button primary">
+                        <span class="icon">🔙</span>
+                        <span>العودة لقرار الحجز</span>
+                    </a>
+                    <a href="index.html" class="cta-button secondary">
+                        <span class="icon">🏠</span>
+                        <span>الصفحة الرئيسية</span>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <script>
+        function trackEvent(eventName) {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', eventName);
+            }
+            console.log('Event tracked:', eventName);
+        }
+        
+        // WhatsApp form submission
+        document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            let message = 'أريد الحصول على تفاصيل دورة قاعدة النور والرسوم';
+            
+            if (phoneNumber) {
+                message += `\nرقمي: ${phoneNumber}`;
+            }
+            
+            const whatsappUrl = `https://wa.me/962791951134?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            
+            trackEvent('lead_capture');
+            trackEvent('whatsapp_click');
+        });
+        
+        // PDF download simulation
+        function downloadPDF() {
+            // In a real implementation, this would link to an actual PDF file
+            // For now, we'll simulate it with a message
+            alert('سيتم إرسال ملف PDF على واتساب خلال 5 دقائق');
+            
+            // Or open WhatsApp to request the PDF
+            const message = 'أريد تحميل ملف PDF تعريفي لدورة قاعدة النور';
+            const whatsappUrl = `https://wa.me/962791951134?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            
+            trackEvent('pdf_download');
+            trackEvent('whatsapp_click');
+        }
+        
+        // Track page view
+        document.addEventListener('DOMContentLoaded', function() {
+            trackEvent('page_view');
+            trackEvent('post_funnel_visit');
+        });
+    </script>
+</body>
+</html>

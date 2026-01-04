@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قرار الحجز - دورة قاعدة النور</title>
+    <meta name="description" content="نقطة القرار النهائية لحجز مقعد في دورة قاعدة النور لتأسيس الأطفال على القرآن">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="page-header">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html">الرئيسية</a>
+                <span class="separator">›</span>
+                <a href="middleFirst.html">التفاصيل</a>
+                <span class="separator">›</span>
+                <span class="current">قرار الحجز</span>
+            </nav>
+            <h1>نقطة القرار</h1>
+            <p class="subtitle">هل تريد تثبيت مقعد لطفلك الآن؟</p>
+        </div>
+    </header>
+    
+    <main class="main-content">
+        <div class="container">
+            <section class="decision-summary">
+                <div class="summary-card">
+                    <h2>ملخص دورة قاعدة النور</h2>
+                    <div class="summary-items">
+                        <div class="summary-item">
+                            <span class="icon">👶</span>
+                            <span>الأطفال (5-8 سنوات)</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="icon">👩‍🏫</span>
+                            <span>المعلمة سميّه البعول</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="icon">📅</span>
+                            <span>أحد/ثلاثاء/خميس مسائي</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="icon">👥</span>
+                            <span>مجموعات صغيرة (8 أطفال كحد أقصى)</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="icon">📍</span>
+                            <span>مركز كفرعان القرآني</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="icon">🎯</span>
+                            <span>تأسيس القراءة بطلاقة</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="decision-question">
+                <div class="question-card">
+                    <h2>هل أنت مستعد لتأسيس طفلك على القرآن؟</h2>
+                    <p class="question-subtitle">انضم إلى أكثر من 50 طفلاً بدأوا رحلتهم مع القرآن في مركز كفرعان</p>
+                    
+                    <div class="decision-options">
+                        <div class="option-card primary">
+                            <div class="option-header">
+                                <h3>نعم، أريد الحجز الآن</h3>
+                                <p>أريد تثبيت مقعد لطفلي في دورة قاعدة النور</p>
+                            </div>
+                            <div class="option-benefits">
+                                <ul>
+                                    <li>تقييم مجاني لمستوى الطفل</li>
+                                    <li>مجموعة مناسبة حسب العمر والمستوى</li>
+                                    <li>جدول ثابت ومناسب</li>
+                                    <li>متابعة مستمرة مع المعلمة</li>
+                                </ul>
+                            </div>
+                            <a href="form.html" class="cta-button primary" onclick="trackEvent('decision_yes')">
+                                ابدأ الحجز الآن
+                            </a>
+                        </div>
+                        
+                        <div class="option-card secondary">
+                            <div class="option-header">
+                                <h3>ليس الآن</h3>
+                                <p>أريد الحصول على معلومات أكثر قبل القرار</p>
+                            </div>
+                            <div class="option-benefits">
+                                <ul>
+                                    <li>تفاصيل الدورة على واتساب</li>
+                                    <li>ملف تعريفي PDF</li>
+                                    <li>متابعة بعد 24 ساعة</li>
+                                    <li>إمكانية الحجز لاحقاً</li>
+                                </ul>
+                            </div>
+                            <a href="postFunnel.html" class="cta-button secondary" onclick="trackEvent('decision_no')">
+                                أرسلوا التفاصيل على واتساب
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="urgency-section">
+                <div class="urgency-card">
+                    <div class="urgency-content">
+                        <h3>المقاعد محدودة</h3>
+                        <p>نقبل فقط 8 أطفال في كل مجموعة لضمان جودة التعليم</p>
+                        <div class="spots-remaining">
+                            <span class="spots-number">3</span>
+                            <span class="spots-text">مقاعد متبقية فقط</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="final-cta">
+                <div class="cta-content">
+                    <h2>لديك أي أسئلة؟</h2>
+                    <p>نحن هنا لمساعدتك في اتخاذ القرار المناسب لطفلك</p>
+                    <div class="contact-options">
+                        <a href="https://wa.me/962791951134?text=أريد الاستفسار عن دورة قاعدة النور قبل الحجز" 
+                           class="contact-button whatsapp" 
+                           onclick="trackEvent('whatsapp_click')">
+                            <span class="icon">💬</span>
+                            <span>استفسار على واتساب</span>
+                        </a>
+                        <a href="tel:+962791951134" 
+                           class="contact-button phone" 
+                           onclick="trackEvent('phone_click')">
+                            <span class="icon">📞</span>
+                            <span>اتصل مباشرة</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <script>
+        // Analytics tracking
+        function trackEvent(eventName) {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', eventName);
+            }
+            console.log('Event tracked:', eventName);
+        }
+        
+        // Track page view
+        document.addEventListener('DOMContentLoaded', function() {
+            trackEvent('page_view');
+            
+            // Simulate spots remaining countdown
+            const spotsElement = document.querySelector('.spots-number');
+            let spots = 3;
+            
+            // Optional: Add urgency with countdown
+            setInterval(() => {
+                if (spots > 1 && Math.random() > 0.7) {
+                    spots--;
+                    spotsElement.textContent = spots;
+                }
+            }, 30000); // Update every 30 seconds
+        });
+    </script>
+</body>
+</html>

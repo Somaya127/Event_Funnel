@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الصفحة غير موجودة - قاعدة النور</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .error-container {
+            text-align: center;
+            padding: 4rem 0;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .error-code {
+            font-size: 8rem;
+            font-weight: 800;
+            color: #667eea;
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+        .error-message {
+            font-size: 1.5rem;
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .error-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="page-header">
+        <div class="container">
+            <h1>صفحة غير موجودة</h1>
+        </div>
+    </header>
+    
+    <main class="main-content">
+        <div class="container">
+            <div class="error-container">
+                <div class="error-icon">🤔</div>
+                <div class="error-code">404</div>
+                <h2 class="error-message">عذراً، الصفحة التي تبحث عنها غير موجودة</h2>
+                <p style="color: #6b7280; margin-bottom: 2rem; max-width: 500px;">
+                    قد تكون الصفحة قد تم نقلها أو حذفها، أو ربما هناك خطأ في الرابط.
+                </p>
+                
+                <div class="error-actions">
+                    <a href="index.html" class="cta-button primary">
+                        <span class="icon">🏠</span>
+                        <span>العودة للرئيسية</span>
+                    </a>
+                    <a href="middleFirst.html" class="cta-button secondary">
+                        <span class="icon">📖</span>
+                        <span>تفاصيل الدورة</span>
+                    </a>
+                    <a href="bottom.html" class="cta-button secondary">
+                        <span class="icon">📝</span>
+                        <span>بدء التسجيل</span>
+                    </a>
+                </div>
+                
+                <div style="margin-top: 3rem; padding: 2rem; background: #f8f9fa; border-radius: 15px;">
+                    <h3 style="color: #1a5276; margin-bottom: 1rem;">يمكنك محاولة:</h3>
+                    <ul style="text-align: right; color: #6b7280; line-height: 1.8;">
+                        <li>التحقق من الرابط المكتوب</li>
+                        <li>العودة إلى الصفحة الرئيسية</li>
+                        <li>استخدام قائمة التنقل</li>
+                        <li>التواصل معنا عبر واتساب</li>
+                    </ul>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="https://wa.me/962791951134?text=أواجه مشكلة في الموقع" class="whatsapp-link">
+                            <span class="icon">💬</span>
+                            <span>تواصل معنا للمساعدة</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <section class="trust-indicators">
+        <div class="container">
+            <div class="stats">
+                <div class="stat">
+                    <span class="number">50+</span>
+                    <span class="label">طفل تم تأسيسهم</span>
+                </div>
+                <div class="stat">
+                    <span class="number">8</span>
+                    <span class="label">حد أقصى للمجموعة</span>
+                </div>
+                <div class="stat">
+                    <span class="number">3</span>
+                    <span class="label">أيام في الأسبوع</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        // Track 404 error
+        if (typeof gtag !== 'undefined') {
+            gtag('event', '404_error', {
+                page_path: window.location.pathname,
+                referrer: document.referrer
+            });
+        }
+        
+        console.log('404 Error:', window.location.pathname);
+    </script>
+</body>
+</html>

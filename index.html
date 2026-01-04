@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دورة قاعدة النور - مركز كفرعان القرآني</title>
+    <meta name="description" content="دورة حضورية لتأسيس الأطفال (5–8 سنوات) على قراءة القرآن بطلاقة في كفرعان">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="registration-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>دورة قاعدة النور</h1>
+                <h2>تأسيس الأطفال (5–8 سنوات) على القراءة بطلاقة</h2>
+                
+                <div class="teacher-info">
+                    <span class="teacher-name">بإشراف المعلمة سميّه البعول</span>
+                </div>
+                
+                <div class="key-features">
+                    <div class="feature">
+                        <span class="icon">📍</span>
+                        <span>مركز كفرعان القرآني</span>
+                    </div>
+                    <div class="feature">
+                        <span class="icon">👥</span>
+                        <span>مجموعات صغيرة (حد أقصى 8 أطفال)</span>
+                    </div>
+                    <div class="feature">
+                        <span class="icon">📅</span>
+                        <span>أحد/ثلاثاء/خميس (مسائي)</span>
+                    </div>
+                </div>
+                
+                <div class="benefits">
+                    <h3>لماذا دورة قاعدة النور؟</h3>
+                    <ul>
+                        <li>تأسيس صحيح لقراءة القرآن من الصفر</li>
+                        <li>مجموعات مستقلة للبنين والبنات</li>
+                        <li>جدول ثابت ومناسب للأطفال</li>
+                    </ul>
+                </div>
+                
+                <div class="cta-section">
+                    <a href="https://wa.me/962791951134?text=أريد حجز تقييم مستوى لطفلي في دورة قاعدة النور" 
+                       class="cta-button primary" 
+                       onclick="trackEvent('whatsapp_click')">
+                        احجز تقييم مستوى لطفلك على واتساب
+                    </a>
+                    <div class="phone-contact">
+                        <span>أو اتصل مباشرة:</span>
+                        <a href="tel:+962791951134" onclick="trackEvent('phone_click')">+962 791 951 134</a>
+                    </div>
+                </div>
+                
+                <div class="secondary-cta">
+                    <a href="middleFirst.html" class="cta-button secondary">
+                        معرفة المزيد من التفاصيل
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <section id="register-form" class="registration-section">
+        <div class="container">
+            <div class="decision-grid">
+                
+                <div class="form-container shadow">
+                    <h2>حجز مقعد وتقييم مستوى</h2>
+                    <p class="form-intro">بيانات بسيطة للبدء</p>
+                    
+                    <form id="registration-form" action="https://formspree.io/f/mnjnnbjn" method="POST">
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label>اسم الطفل*</label>
+                                <input type="text" name="اسم_الطفل" required placeholder="الاسم الثلاثي">
+                            </div>
+                            <div class="input-group">
+                                <label>العمر (5-8)*</label>
+                                <input type="number" name="العمر" min="5" max="8" required>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>الجنس*</label>
+                            <div class="radio-group-simple">
+                                <label><input type="radio" name="الجنس" value="بنين" required> بنين</label>
+                                <label><input type="radio" name="الجنس" value="بنات"> بنات</label>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>رقم واتساب ولي الأمر*</label>
+                            <input type="tel" name="رقم_الواتساب" required placeholder="07XXXXXXXX">
+                        </div>
+
+                        <input type="hidden" name="_next" value="https://localhost:8000/confirmation.html">
+                        <input type="hidden" name="_subject" value="تسجيل جديد في دورة قاعدة النور">
+                        <input type="text" name="_gotcha" style="display:none">
+
+                        <button type="submit" id="submit-btn" class="btn btn-primary btn-full">إرسال طلب الحجز ✅</button>
+                    </form>
+
+                    <div id="response-msg" class="success-box" style="display:none;">
+                        <div class="icon">📩</div>
+                        <h3>تم استلام طلبك بنجاح!</h3>
+                        <p>شكراً لثقتك بمركز كفرعان. سنتواصل معك قريباً لتحديد موعد التقييم.</p>
+                        <a href="https://wa.me/962791951134" class="btn btn-outline">تواصل معنا الآن عبر واتساب</a>
+                    </div>
+                </div>
+
+                <div class="not-now-container">
+                    <div class="not-now-card">
+                        <h3>غير مستعد للحجز بعد؟</h3>
+                        <p>لا بأس! يمكنك الحصول على ملف تفاصيل الدورة والرسوم والجدول كاملاً عبر الواتساب مباشرة.</p>
+                        <button class="btn btn-secondary" onclick="showQuickInfo()">عرض التفاصيل الآن 📄</button>
+                        
+                        <div id="quick-info-box" class="quick-info" style="display:none;">
+                            <ul class="info-list">
+                                <li>📍 الموقع: كفرعان - مقابل مسجد سعيد بن زيد</li>
+                                <li>⏰ الموعد: أحد/ثلاثاء/خميس (مسائي)</li>
+                                <li>💰 الرسوم: يتم تحديدها بعد تقييم المستوى</li>
+                            </ul>
+                            <a href="https://wa.me/962791951134?text=أريد%20معلومات%20إضافية%20عن%20دورة%20قاعدة%20النور" class="whatsapp-link">تحدث مع الإدارة عبر واتساب</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <section class="trust-indicators">
+        <div class="container">
+            <div class="stats">
+                <div class="stat">
+                    <span class="number">50+</span>
+                    <span class="label">طفل تم تأسيسهم</span>
+                </div>
+                <div class="stat">
+                    <span class="number">8</span>
+                    <span class="label">حد أقصى للمجموعة</span>
+                </div>
+                <div class="stat">
+                    <span class="number">3</span>
+                    <span class="label">أيام في الأسبوع</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        // Analytics tracking
+        function trackEvent(eventName) {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', eventName);
+            }
+            console.log('Event tracked:', eventName);
+        }
+        
+        // Track page view
+        document.addEventListener("DOMContentLoaded", function() {
+            trackEvent('page_view');
+            
+            const form = document.getElementById("registration-form");
+            const responseMsg = document.getElementById("response-msg");
+
+            if (form) {
+                console.log("Form found, adding event listener...");
+                
+                form.addEventListener("submit", function(event) {
+                    event.preventDefault(); // منع الصفحة من الانتعاش
+                    
+                    const submitBtn = document.getElementById("submit-btn");
+                    submitBtn.innerText = "جاري الإرسال...";
+                    submitBtn.disabled = true;
+
+                    // تتبع الحدث
+                    trackEvent('form_submit_single');
+                    trackEvent('lead_capture');
+
+                    // إرسال البيانات إلى الإيميل
+                    fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form),
+                        headers: { 'Accept': 'application/json' }
+                    }).then(response => {
+                        if (response.ok) {
+                            // إخفاء الفورم وإظهار رسالة النجاح
+                            form.style.display = "none";
+                            responseMsg.style.display = "block";
+                            
+                            // تتبع النجاح
+                            trackEvent('form_submit_success');
+                            
+                            // التوجيه لصفحة التأكيد بعد 3 ثوان
+                            setTimeout(() => {
+                                window.location.href = 'confirmation.html';
+                            }, 3000);
+                        } else {
+                            alert("حدث خطأ، تأكد من إعداد Formspree بشكل صحيح.");
+                            submitBtn.disabled = false;
+                            submitBtn.innerText = "إرسال طلب الحجز ✅";
+                            trackEvent('form_submit_error');
+                        }
+                    }).catch(() => {
+                        alert("يرجى التأكد من الاتصال بالإنترنت.");
+                        submitBtn.disabled = false;
+                        submitBtn.innerText = "إرسال طلب الحجز ✅";
+                        trackEvent('form_submit_network_error');
+                    });
+                });
+            } else {
+                console.error("Form not found!");
+            }
+
+            // وظيفة عرض المعلومات السريعة (خيار ليس الآن)
+            window.showQuickInfo = function() {
+                const infoBox = document.getElementById('quick-info-box');
+                if (infoBox.style.display === 'none') {
+                    infoBox.style.display = 'block';
+                    trackEvent('quick_info_shown');
+                } else {
+                    infoBox.style.display = 'none';
+                }
+                
+                // تتبع الاهتمام (Secondary Conversion)
+                console.log("User requested quick info (Retention)");
+                trackEvent('retention_path_clicked');
+            };
+        });
+    </script>
+    <script src="homework-script.js"></script>
+</body>
+</html>

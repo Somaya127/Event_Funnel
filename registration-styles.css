@@ -1,0 +1,311 @@
+/* Registration Section Styles - Additional Styles for Single Step Form */
+
+.registration-section {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.decision-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.form-container {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+}
+
+.form-container h2 {
+    color: #1a5276;
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+}
+
+.form-intro {
+    color: #6b7280;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 0.875rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s;
+    font-family: 'Tajawal', sans-serif;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* Radio Button Styles */
+.radio-group-simple {
+    display: flex;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.radio-group-simple label {
+    font-weight: normal;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #374151;
+}
+
+.radio-group-simple input[type="radio"] {
+    width: auto;
+    margin: 0;
+    accent-color: #3498db;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.875rem 2rem;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    font-size: 1rem;
+    text-decoration: none;
+    text-align: center;
+    font-family: 'Tajawal', sans-serif;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #2980b9 0%, #1f618d 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+}
+
+.btn-primary:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.btn-secondary {
+    background: #6b7280;
+    color: white;
+    border: 2px solid #6b7280;
+}
+
+.btn-secondary:hover {
+    background: #4b5563;
+    border-color: #4b5563;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    color: #3498db;
+    border: 2px solid #3498db;
+}
+
+.btn-outline:hover {
+    background: #3498db;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-full {
+    width: 100%;
+    margin-top: 15px;
+    font-size: 1.2rem;
+}
+
+/* Not Now Container Styles */
+.not-now-container {
+    background: #fdfdfd;
+    border: 2px dashed #ccc;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    height: fit-content;
+}
+
+.not-now-card h3 {
+    color: #555;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.not-now-card p {
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.quick-info {
+    margin-top: 20px;
+    background: #fff8e1;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: right;
+    animation: slideDown 0.4s ease-out;
+    border: 1px solid #fcd34d;
+}
+
+.info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+}
+
+.info-list li {
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    color: #374151;
+}
+
+.whatsapp-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #25d366;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.whatsapp-link:hover {
+    color: #128c7e;
+    text-decoration: underline;
+}
+
+.success-box {
+    text-align: center;
+    padding: 2rem;
+    animation: scaleUp 0.3s ease;
+    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+    border-radius: 15px;
+    border: 1px solid #b8daff;
+}
+
+.success-box .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.success-box h3 {
+    color: #155724;
+    margin-bottom: 1rem;
+}
+
+.success-box p {
+    color: #155724;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+/* Animations */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design for Registration Section */
+@media (max-width: 768px) {
+    .decision-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .input-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    .form-container {
+        padding: 1.5rem;
+    }
+    
+    .form-container h2 {
+        font-size: 1.5rem;
+    }
+    
+    .not-now-container {
+        padding: 20px;
+    }
+    
+    .registration-section {
+        padding: 2rem 0;
+    }
+    
+    .radio-group-simple {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-container {
+        padding: 1rem;
+    }
+    
+    .btn-full {
+        font-size: 1.1rem;
+        padding: 0.875rem 1.5rem;
+    }
+    
+    .form-container h2 {
+        font-size: 1.3rem;
+    }
+}
