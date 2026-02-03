@@ -6,352 +6,736 @@
     <title>نموذج التسجيل - دورة قاعدة النور</title>
     <meta name="description" content="سجل طفلك في دورة قاعدة النور لتأسيس القراءة بطلاقة">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <header class="page-header">
-        <div class="container">
-            <nav class="breadcrumb">
-                <a href="index.html">الرئيسية</a>
-                <span class="separator">›</span>
-                <a href="middleFirst.html">التفاصيل</a>
-                <span class="separator">›</span>
-                <a href="bottom.html">قرار الحجز</a>
-                <span class="separator">›</span>
-                <span class="current">نموذج التسجيل</span>
-            </nav>
-            <h1>نموذج تسجيل دورة قاعدة النور</h1>
-            <p class="subtitle">املأ البيانات لتأكيد حجز مقعد لطفلك</p>
-        </div>
-    </header>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="script.js"></script>
+    <script src="enhanced-form-handler.js"></script>
     
-    <main class="main-content">
-        <div class="container">
-            <div class="progress-bar">
-                <div class="progress-step active" data-step="1">
-                    <span class="step-number">1</span>
-                    <span class="step-title">بيانات الطفل</span>
-                </div>
-                <div class="progress-step" data-step="2">
-                    <span class="step-number">2</span>
-                    <span class="step-title">تفضيلات الدورة</span>
-                </div>
-                <div class="progress-step" data-step="3">
-                    <span class="step-number">3</span>
-                    <span class="step-title">بيانات ولي الأمر</span>
-                </div>
-            </div>
+    <style>
+        /* Professional Form Styles */
+        .professional-form {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+        
+        .professional-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,106.7C1248,96,1344,96,1392,96L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+            opacity: 0.3;
+        }
+        
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .form-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            animation: slideUp 0.6s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .form-header {
+            background: linear-gradient(135deg, #1a5276 0%, #2c3e50 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .form-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="white" stroke-width="0.5" opacity="0.3"/><circle cx="50" cy="50" r="30" fill="none" stroke="white" stroke-width="0.5" opacity="0.3"/><circle cx="50" cy="50" r="20" fill="none" stroke="white" stroke-width="0.5" opacity="0.3"/></svg>') no-repeat center;
+            background-size: 200px;
+            opacity: 0.1;
+        }
+        
+        .form-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .form-header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .form-body {
+            padding: 3rem 2rem;
+        }
+        
+        .form-section {
+            margin-bottom: 2rem;
+        }
+        
+        .form-section h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .form-section h2 i {
+            color: #667eea;
+            font-size: 1.5rem;
+        }
+        
+        .form-section p {
+            color: #7f8c8d;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            position: relative;
+        }
+        
+        .form-group label {
+            display: block;
+            color: #34495e;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .form-group label .required {
+            color: #e74c3c;
+            margin-right: 0.25rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: 'Tajawal', sans-serif;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .form-control:hover {
+            border-color: #bdc3c7;
+        }
+        
+        .form-group textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .checkbox-group:hover {
+            border-color: #667eea;
+            background: #f0f3ff;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            cursor: pointer;
+        }
+        
+        .checkbox-group label {
+            margin: 0;
+            cursor: pointer;
+            flex: 1;
+        }
+        
+        .form-note {
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 8px 20px rgba(243, 156, 18, 0.3);
+        }
+        
+        .form-note i {
+            font-size: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .form-note p {
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        .form-actions {
+            margin-top: 3rem;
+            text-align: center;
+        }
+        
+        .btn-submit {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 1.25rem 3rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-submit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .btn-submit:hover::before {
+            left: 100%;
+        }
+        
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-submit:active {
+            transform: translateY(-1px);
+        }
+        
+        .btn-submit.loading {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+        
+        .btn-submit.loading .btn-text {
+            opacity: 0;
+        }
+        
+        .btn-submit .spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            opacity: 0;
+        }
+        
+        .btn-submit.loading .spinner {
+            opacity: 1;
+        }
+        
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        .progress-indicator {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            gap: 0.5rem;
+        }
+        
+        .progress-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #e9ecef;
+            transition: all 0.3s ease;
+        }
+        
+        .progress-dot.active {
+            background: #667eea;
+            transform: scale(1.2);
+        }
+        
+        .progress-dot.completed {
+            background: #27ae60;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .professional-form {
+                overflow-y: auto;
+                overflow-x: hidden;
+            }
             
-            <form id="registrationForm" class="multi-step-form">
-                <!-- Step 1: Child Information -->
-                <div class="form-step active" data-step="1">
-                    <div class="step-header">
-                        <h2>الخطوة 1: معلومات الطفل</h2>
-                        <p>نحتاج إلى بعض المعلومات الأساسية عن طفلك</p>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="childName">اسم الطفل *</label>
-                        <input type="text" id="childName" name="childName" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="childAge">عمر الطفل *</label>
-                        <select id="childAge" name="childAge" required>
-                            <option value="">اختر العمر</option>
-                            <option value="5">5 سنوات</option>
-                            <option value="6">6 سنوات</option>
-                            <option value="7">7 سنوات</option>
-                            <option value="8">8 سنوات</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>هل يعرف الطفل الحروف العربية؟ *</label>
-                        <div class="radio-group">
-                            <label class="radio-option">
-                                <input type="radio" name="knowsLetters" value="yes" required>
-                                <span class="radio-custom"></span>
-                                <span>نعم، يعرف الحروف</span>
-                            </label>
-                            <label class="radio-option">
-                                <input type="radio" name="knowsLetters" value="no" required>
-                                <span class="radio-custom"></span>
-                                <span>لا، لا يعرف الحروف</span>
-                            </label>
-                            <label class="radio-option">
-                                <input type="radio" name="knowsLetters" value="partial" required>
-                                <span class="radio-custom"></span>
-                                <span>يعرف بعض الحروف</span>
-                            </label>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="previousQuran">هل سبق له تعلم القرآن؟</label>
-                        <select id="previousQuran" name="previousQuran">
-                            <option value="">اختر</option>
-                            <option value="none">لا، هذا أول تعلم له</option>
-                            <option value="little">قليل جداً</option>
-                            <option value="some">بعض السور القصيرة</option>
-                            <option value="good">مستوى جيد</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-actions">
-                        <button type="button" class="btn-primary" onclick="nextStep()">
-                            التالي
-                        </button>
-                    </div>
+            .form-container {
+                padding: 1rem;
+                min-height: auto;
+                align-items: flex-start;
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+            }
+            
+            .form-header {
+                padding: 2rem 1.5rem;
+            }
+            
+            .form-header h1 {
+                font-size: 2rem;
+            }
+            
+            .form-body {
+                padding: 2rem 1.5rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .btn-submit {
+                width: 100%;
+                padding: 1rem 2rem;
+            }
+        }
+        
+        /* Ensure scrolling works on all devices */
+        html, body {
+            height: 100%;
+            overflow-x: hidden;
+        }
+        
+        .professional-form {
+            height: auto;
+            min-height: 100vh;
+        }
+        
+        /* Floating elements animation */
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-element:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .floating-element:nth-child(2) {
+            top: 20%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+        
+        .floating-element:nth-child(3) {
+            bottom: 20%;
+            left: 5%;
+            animation-delay: 4s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+    </style>
+</head>
+<body class="professional-form">
+    <!-- Floating decorative elements -->
+    <div class="floating-element">
+        <i class="fas fa-book-open" style="font-size: 3rem; color: white;"></i>
+    </div>
+    <div class="floating-element">
+        <i class="fas fa-graduation-cap" style="font-size: 2.5rem; color: white;"></i>
+    </div>
+    <div class="floating-element">
+        <i class="fas fa-star" style="font-size: 2rem; color: white;"></i>
+    </div>
+    
+    <div class="form-container">
+        <div class="form-card">
+            <header class="form-header">
+                <h1>🌟 قاعدة النور</h1>
+                <p class="subtitle">نموذج تسجيل دورة تأسيس القرآن للأطفال</p>
+            </header>
+            
+            <main class="form-body">
+                <div class="progress-indicator">
+                    <div class="progress-dot active"></div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-dot"></div>
                 </div>
                 
-                <!-- Step 2: Course Preferences -->
-                <div class="form-step" data-step="2">
-                    <div class="step-header">
-                        <h2>الخطوة 2: تفضيلات الدورة</h2>
-                        <p>حدد المجموعة والوقت المناسب لطفلك</p>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>المجموعة *</label>
-                        <div class="radio-group">
-                            <label class="radio-option">
-                                <input type="radio" name="group" value="boys" required>
-                                <span class="radio-custom"></span>
-                                <span>مجموعة البنين</span>
-                            </label>
-                            <label class="radio-option">
-                                <input type="radio" name="group" value="girls" required>
-                                <span class="radio-custom"></span>
-                                <span>مجموعة البنات</span>
-                            </label>
+                <form id="registrationForm" class="professional-form-inner">
+                    <div class="form-section">
+                        <h2><i class="fas fa-child"></i> معلومات الطفل</h2>
+                        <p>نحتاج إلى بعض المعلومات الأساسية عن طفلك لنتمكن من توفير أفضل تجربة تعليمية</p>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="childName">
+                                    اسم الطفل <span class="required">*</span>
+                                </label>
+                                <input type="text" id="childName" name="اسم_الطفل" class="form-control" required placeholder="أدخل اسم الطفل الكامل">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="childAge">
+                                    عمر الطفل <span class="required">*</span>
+                                </label>
+                                <select id="childAge" name="العمر" class="form-control" required>
+                                    <option value="">اختر العمر</option>
+                                    <option value="5">5 سنوات</option>
+                                    <option value="6">6 سنوات</option>
+                                    <option value="7">7 سنوات</option>
+                                    <option value="8">8 سنوات</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="childGender">
+                                    جنس الطفل <span class="required">*</span>
+                                </label>
+                                <select id="childGender" name="الجنس" class="form-control" required>
+                                    <option value="">اختر الجنس</option>
+                                    <option value="ذكر">👦 ذكر</option>
+                                    <option value="أنثى">👧 أنثى</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="knowsLetters">
+                                    معرفة الحروف العربية <span class="required">*</span>
+                                </label>
+                                <select id="knowsLetters" name="يعرف_الحروف" class="form-control" required>
+                                    <option value="">اختر المستوى</option>
+                                    <option value="نعم">✅ نعم، يعرف الحروف</option>
+                                    <option value="لا">❌ لا، لا يعرف الحروف</option>
+                                    <option value="بعضها">📚 يعرف بعض الحروف</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="form-group">
-                        <label>تأكيد الجدول الزمني *</label>
-                        <div class="schedule-confirmation">
-                            <div class="schedule-item">
-                                <span class="icon">📅</span>
-                                <span>أحد / ثلاثاء / خميس</span>
-                            </div>
-                            <div class="schedule-item">
-                                <span class="icon">🕐</span>
-                                <span>وقت مسائي (ساعتان)</span>
-                            </div>
-                            <div class="schedule-item">
-                                <span class="icon">📍</span>
-                                <span>مركز كفرعان القرآني</span>
-                            </div>
+                    <div class="form-section">
+                        <h2><i class="fas fa-phone"></i> معلومات التواصل</h2>
+                        <p>سنستخدم هذه المعلومات للتواصل معك وتأكيد التسجيل</p>
+                        
+                        <div class="form-group">
+                            <label for="parentPhone">
+                                رقم واتساب ولي الأمر <span class="required">*</span>
+                            </label>
+                            <input type="tel" id="parentPhone" name="رقم_الواتساب" class="form-control" pattern="[0-9]{10,12}" required placeholder="مثال: 0791234567">
+                            <small style="color: #7f8c8d; font-size: 0.9rem; margin-top: 0.5rem; display: block;">
+                                <i class="fas fa-info-circle"></i> سيتم استخدام هذا الرقم للتواصل والتأكيد
+                            </small>
                         </div>
-                        <label class="checkbox-option">
-                            <input type="checkbox" name="scheduleConfirm" required>
-                            <span class="checkbox-custom"></span>
-                            <span>أؤكد أن الجدول الزمني يناسبني</span>
-                        </label>
+                        
+                        <div class="form-group">
+                            <label for="notes">
+                                ملاحظات إضافية
+                            </label>
+                            <textarea id="notes" name="ملاحظات" class="form-control" rows="4" placeholder="أي معلومات إضافية تود مشاركتها (اختياري)"></textarea>
+                        </div>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="preferredTime">الوقت المفضل في المساء</label>
-                        <select id="preferredTime" name="preferredTime">
-                            <option value="">اختر الوقت</option>
-                            <option value="4-6">4:00 - 6:00 مساءً</option>
-                            <option value="5-7">5:00 - 7:00 مساءً</option>
-                            <option value="6-8">6:00 - 8:00 مساءً</option>
-                            <option value="flexible">مرن حسب ما يتوفر</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="specialNeeds">هل لدى الطفل أي احتياجات خاصة؟</label>
-                        <textarea id="specialNeeds" name="specialNeeds" rows="3" placeholder="مثال: صعوبة في التركيز، حساسية من الضوضاء، إلخ (اختياري)"></textarea>
-                    </div>
-                    
-                    <div class="form-actions">
-                        <button type="button" class="btn-secondary" onclick="previousStep()">
-                            السابق
-                        </button>
-                        <button type="button" class="btn-primary" onclick="nextStep()">
-                            التالي
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Step 3: Parent Information -->
-                <div class="form-step" data-step="3">
-                    <div class="step-header">
-                        <h2>الخطوة 3: بيانات ولي الأمر</h2>
-                        <p>معلومات التواصل مع ولي الأمر</p>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="parentName">اسم ولي الأمر *</label>
-                        <input type="text" id="parentName" name="parentName" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="parentPhone">رقم واتساب *</label>
-                        <input type="tel" id="parentPhone" name="parentPhone" pattern="[0-9]{10,12}" required>
-                        <small>سيتم استخدام هذا الرقم للتواصل وإرسال الرسوم</small>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="parentRelation">علاقتك بالطفل *</label>
-                        <select id="parentRelation" name="parentRelation" required>
-                            <option value="">اختر</option>
-                            <option value="father">الأب</option>
-                            <option value="mother">الأم</option>
-                            <option value="guardian">الوصي</option>
-                            <option value="other">آخر</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="bestContactTime">أفضل وقت للتواصل</label>
-                        <select id="bestContactTime" name="bestContactTime">
-                            <option value="">اختر الوقت</option>
-                            <option value="morning">الصباح (9:00 - 12:00)</option>
-                            <option value="afternoon">بعد الظهر (12:00 - 4:00)</option>
-                            <option value="evening">المساء (4:00 - 8:00)</option>
-                            <option value="any">أي وقت</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="notes">ملاحظات إضافية</label>
-                        <textarea id="notes" name="notes" rows="3" placeholder="أي معلومات إضافية تود مشاركتها (اختياري)"></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="checkbox-option">
-                            <input type="checkbox" name="agreeTerms" required>
-                            <span class="checkbox-custom"></span>
-                            <span>أوافق على شروط الدورة وأؤكد صحة المعلومات المقدمة</span>
-                        </label>
+                    <div class="form-section">
+                        <div class="checkbox-group">
+                            <input type="checkbox" name="agreeTerms" id="agreeTerms" required>
+                            <label for="agreeTerms">
+                                أوافق على شروط الدورة وأؤكد صحة المعلومات المقدمة. أعلم أن البيانات سيتم استخدامها لأغراض التواصل المتعلقة بالدورة فقط.
+                            </label>
+                        </div>
                     </div>
                     
                     <div class="form-note">
-                        <p>💡 الرسوم الشهرية للدورة ستُرسل على واتساب بعد تقييم مستوى الطفل</p>
+                        <i class="fas fa-lightbulb"></i>
+                        <p>💡 سنتواصل معك خلال 24 ساعة لتأكيد التسجيل وتحديد موعد التقييم المجاني</p>
                     </div>
                     
                     <div class="form-actions">
-                        <button type="button" class="btn-secondary" onclick="previousStep()">
-                            السابق
-                        </button>
-                        <button type="submit" class="btn-primary">
-                            إرسال الطلب
+                        <button type="submit" class="btn-submit" id="submitBtn">
+                            <span class="btn-text">
+                                <i class="fas fa-rocket"></i> إرسال طلب التسجيل
+                            </span>
+                            <div class="spinner"></div>
                         </button>
                     </div>
-                </div>
-            </form>
+                </form>
+            </main>
         </div>
-    </main>
+    </div>
     
     <script>
-        let currentStep = 1;
-        const totalSteps = 3;
-        const formData = {};
-        
-        function updateProgressBar() {
-            document.querySelectorAll('.progress-step').forEach((step, index) => {
-                if (index < currentStep) {
-                    step.classList.add('completed');
-                    step.classList.remove('active');
-                } else if (index === currentStep - 1) {
-                    step.classList.add('active');
-                    step.classList.remove('completed');
-                } else {
-                    step.classList.remove('active', 'completed');
-                }
-            });
-        }
-        
-        function showStep(stepNumber) {
-            document.querySelectorAll('.form-step').forEach(step => {
-                step.classList.remove('active');
-            });
-            document.querySelector(`.form-step[data-step="${stepNumber}"]`).classList.add('active');
-            updateProgressBar();
-        }
-        
-        function validateCurrentStep() {
-            const currentStepElement = document.querySelector(`.form-step[data-step="${currentStep}"]`);
-            const requiredFields = currentStepElement.querySelectorAll('[required]');
-            
-            for (let field of requiredFields) {
-                if (!field.value || (field.type === 'radio' && !document.querySelector(`input[name="${field.name}"]:checked`))) {
-                    field.focus();
-                    alert('يرجى ملء جميع الحقول المطلوبة');
-                    return false;
-                }
-            }
-            return true;
-        }
-        
-        function saveStepData() {
-            const currentStepElement = document.querySelector(`.form-step[data-step="${currentStep}"]`);
-            const inputs = currentStepElement.querySelectorAll('input, select, textarea');
-            
-            inputs.forEach(input => {
-                if (input.type === 'radio') {
-                    if (input.checked) {
-                        formData[input.name] = input.value;
-                    }
-                } else if (input.type === 'checkbox') {
-                    formData[input.name] = input.checked;
-                } else {
-                    formData[input.name] = input.value;
-                }
-            });
-        }
-        
-        function nextStep() {
-            if (validateCurrentStep()) {
-                saveStepData();
-                if (currentStep < totalSteps) {
-                    currentStep++;
-                    showStep(currentStep);
-                    trackEvent(`form_step_${currentStep}_complete`);
-                }
-            }
-        }
-        
-        function previousStep() {
-            if (currentStep > 1) {
-                currentStep--;
-                showStep(currentStep);
-            }
-        }
-        
-        function trackEvent(eventName) {
-            if (typeof gtag !== 'undefined') {
-                gtag('event', eventName);
-            }
-            console.log('Event tracked:', eventName);
-        }
-        
-        // Form submission
-        document.getElementById('registrationForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            if (validateCurrentStep()) {
-                saveStepData();
-                
-                // Track form submission
-                trackEvent('form_submit');
-                
-                // Send data to server (you can replace this with your actual endpoint)
-                console.log('Form data:', formData);
-                
-                // Redirect to confirmation page
-                window.location.href = 'confirmation.html';
-            }
-        });
-        
-        // Track page view and form start
+        // Enhanced form interactions
         document.addEventListener('DOMContentLoaded', function() {
-            trackEvent('page_view');
+            const form = document.getElementById('registrationForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const progressDots = document.querySelectorAll('.progress-dot');
+            let currentStep = 0;
+            
+            // Track page view
+            trackEvent('page_view', {
+                page_title: document.title,
+                page_location: window.location.href
+            });
             trackEvent('form_start');
+            
+            // Animate progress dots
+            function updateProgress(step) {
+                progressDots.forEach((dot, index) => {
+                    dot.classList.remove('active', 'completed');
+                    if (index < step) {
+                        dot.classList.add('completed');
+                    } else if (index === step) {
+                        dot.classList.add('active');
+                    }
+                });
+            }
+            
+            // Form field animations
+            const formControls = document.querySelectorAll('.form-control');
+            formControls.forEach((control, index) => {
+                control.style.animationDelay = `${index * 0.1}s`;
+                control.style.animation = 'slideUp 0.6s ease-out forwards';
+                control.style.opacity = '0';
+                
+                setTimeout(() => {
+                    control.style.opacity = '1';
+                }, index * 100);
+            });
+            
+            // Real-time validation
+            formControls.forEach(control => {
+                control.addEventListener('blur', function() {
+                    validateField(this);
+                });
+                
+                control.addEventListener('input', function() {
+                    if (this.classList.contains('error')) {
+                        validateField(this);
+                    }
+                });
+            });
+            
+            function validateField(field) {
+                const value = field.value.trim();
+                let isValid = true;
+                let errorMessage = '';
+                
+                if (field.hasAttribute('required') && !value) {
+                    isValid = false;
+                    errorMessage = 'هذا الحقل مطلوب';
+                } else if (field.type === 'tel' && value) {
+                    const phoneRegex = /^[0-9]{10,12}$/;
+                    if (!phoneRegex.test(value.replace(/\D/g, ''))) {
+                        isValid = false;
+                        errorMessage = 'يرجى إدخال رقم هاتف صحيح';
+                    }
+                }
+                
+                // Update field appearance
+                if (isValid) {
+                    field.classList.remove('error');
+                    field.classList.add('success');
+                    field.style.borderColor = '#27ae60';
+                } else {
+                    field.classList.add('error');
+                    field.classList.remove('success');
+                    field.style.borderColor = '#e74c3c';
+                }
+                
+                return isValid;
+            }
+            
+            // Form submission
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                // Validate all fields
+                let isFormValid = true;
+                formControls.forEach(control => {
+                    if (!validateField(control)) {
+                        isFormValid = false;
+                    }
+                });
+                
+                if (!isFormValid) {
+                    // Shake animation for invalid form
+                    form.style.animation = 'shake 0.5s';
+                    setTimeout(() => {
+                        form.style.animation = '';
+                    }, 500);
+                    return;
+                }
+                
+                // Show loading state
+                submitBtn.classList.add('loading');
+                submitBtn.disabled = true;
+                
+                // Collect form data
+                const formData = new FormData(form);
+                const data = {};
+                formData.forEach((value, key) => {
+                    data[key] = value;
+                });
+                
+                try {
+                    // Submit form
+                    const result = await submitForm(data);
+                    
+                    if (result.success) {
+                        // Success animation
+                        updateProgress(3);
+                        
+                        // Redirect to confirmation page
+                        setTimeout(() => {
+                            window.location.href = 'confirmation.html';
+                        }, 1000);
+                    } else {
+                        throw new Error(result.error || 'فشل إرسال النموذج');
+                    }
+                } catch (error) {
+                    console.error('Submission error:', error);
+                    
+                    // Show error message
+                    const errorDiv = document.createElement('div');
+                    errorDiv.className = 'error-message';
+                    errorDiv.innerHTML = `
+                        <i class="fas fa-exclamation-circle"></i>
+                        <p>حدث خطأ أثناء إرسال النموذج. يرجى المحاولة مرة أخرى.</p>
+                    `;
+                    errorDiv.style.cssText = `
+                        background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+                        color: white;
+                        padding: 1rem 1.5rem;
+                        border-radius: 12px;
+                        margin: 1rem 0;
+                        display: flex;
+                        align-items: center;
+                        gap: 1rem;
+                        animation: slideUp 0.3s ease-out;
+                    `;
+                    
+                    form.insertBefore(errorDiv, form.firstChild);
+                    
+                    // Remove error message after 5 seconds
+                    setTimeout(() => {
+                        errorDiv.remove();
+                    }, 5000);
+                } finally {
+                    // Reset loading state
+                    submitBtn.classList.remove('loading');
+                    submitBtn.disabled = false;
+                }
+            });
+            
+            // Add shake animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes shake {
+                    0%, 100% { transform: translateX(0); }
+                    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+                    20%, 40%, 60%, 80% { transform: translateX(5px); }
+                }
+                
+                .form-control.success {
+                    border-color: #27ae60 !important;
+                    box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.1) !important;
+                }
+                
+                .form-control.error {
+                    border-color: #e74c3c !important;
+                    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1) !important;
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Update progress based on form completion
+            function updateFormProgress() {
+                const filledFields = Array.from(formControls).filter(control => control.value.trim() !== '');
+                const progress = Math.floor((filledFields.length / formControls.length) * 3);
+                updateProgress(progress);
+            }
+            
+            formControls.forEach(control => {
+                control.addEventListener('input', updateFormProgress);
+            });
         });
     </script>
 </body>

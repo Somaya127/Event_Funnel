@@ -1,6 +1,53 @@
+// Direct WhatsApp fallback function
+function openWhatsAppDirectly(formData) {
+    console.log('🔄 Using direct WhatsApp fallback...');
+    
+    const message = generateWhatsAppSummary(formData);
+    
+    // Try multiple methods to open WhatsApp
+    try {
+        // Method 1: window.open
+        const whatsappWindow = window.open(message, '_blank', 'width=600,height=600');
+        if (whatsappWindow && !whatsappWindow.closed) {
+            console.log('✅ WhatsApp opened via window.open');
+            return true;
+        }
+    } catch (e) {
+        console.warn('⚠️ window.open failed:', e);
+    }
+    
+    try {
+        // Method 2: location.href (same tab)
+        window.location.href = message;
+        console.log('✅ WhatsApp opened via location.href');
+        return true;
+    } catch (e) {
+        console.warn('⚠️ location.href failed:', e);
+    }
+    
+    // Method 3: Create a temporary link and click it
+    try {
+        const link = document.createElement('a');
+        link.href = message;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        console.log('✅ WhatsApp opened via link click');
+        return true;
+    } catch (e) {
+        console.warn('⚠️ link click failed:', e);
+    }
+    
+    return false;
+}
+
 // Enhanced Form Submission with Google Sheets Integration
 async function submitForm(formData) {
     try {
+        console.log('🚀 Starting form submission...', formData);
+        
         // Track form submission
         trackEvent('form_submit', { total_steps: 3 });
         
@@ -12,19 +59,27 @@ async function submitForm(formData) {
         
         // 2. Generate WhatsApp message
         const whatsappMessage = generateWhatsAppSummary(formData);
+        console.log('📱 WhatsApp URL:', whatsappMessage);
         
-        // 3. Open WhatsApp with pre-filled message
-        window.open(whatsappMessage, '_blank');
+        // 3. Open WhatsApp with multiple fallback methods
+        const whatsappOpened = openWhatsAppDirectly(formData);
         
-        // 4. Redirect to confirmation page
+        if (!whatsappOpened) {
+            console.error('❌ All WhatsApp opening methods failed');
+            // Show error to user but still proceed
+            alert('لم يتمكن من فتح الواتساب تلقائياً. يرجى النقر على رابط الواتساب اليدوي.');
+        }
+        
+        // 4. Redirect to confirmation page after a delay
         setTimeout(() => {
+            console.log('🔄 Redirecting to confirmation page...');
             window.location.href = 'confirmation.html';
-        }, 1000);
+        }, 3000); // Increased delay to allow WhatsApp to load
         
         return { success: true };
         
     } catch (error) {
-        console.error('Form submission error:', error);
+        console.error('❌ Form submission error:', error);
         trackEvent('form_submit_error', { error: error.message });
         return { success: false, error: error.message };
     }
@@ -32,23 +87,37 @@ async function submitForm(formData) {
 
 // Generate WhatsApp message from form data
 function generateWhatsAppSummary(formData) {
+    console.log('📝 Generating WhatsApp message for:', formData);
+    
+    // Handle missing data gracefully
+    const childName = formData.اسم_الطفل || 'غير محدد';
+    const age = formData.العمر || 'غير محدد';
+    const gender = formData.الجنس || 'غير محدد';
+    const phone = formData.رقم_الواتساب || 'غير محدد';
+    const notes = formData.ملاحظات || 'لا توجد ملاحظات';
+    
     const message = `
 📝 *تسجيل جديد في دورة قاعدة النور*
 
-👶 *اسم الطفل:* ${formData.اسم_الطفل}
-🎂 *العمر:* ${formData.العمر} سنوات
-⚥ *الجنس:* ${formData.الجنس}
-📱 *رقم واتساب ولي الأمر:* ${formData.رقم_الواتساب}
+👶 *اسم الطفل:* ${childName}
+🎂 *العمر:* ${age} سنوات
+⚥ *الجنس:* ${gender}
+📱 *رقم واتساب ولي الأمر:* ${phone}
 
 📅 *تاريخ التسجيل:* ${new Date().toLocaleDateString('ar-SA')}
 🏫 *المركز:* مركز كفرعان القرآني
+
+📝 *ملاحظات:* ${notes}
 
 ---
 *تم التسجيل عبر الموقع الإلكتروني*
     `.trim();
     
     const phoneNumber = '962791951134'; // Your WhatsApp number
-    return `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    
+    console.log('✅ Generated WhatsApp URL:', whatsappUrl);
+    return whatsappUrl;
 }
 
 // Enhanced analytics tracking

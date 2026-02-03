@@ -6,185 +6,445 @@
     <title>تأكيد التسجيل - دورة قاعدة النور</title>
     <meta name="description" content="تم استلام طلبك بنجاح في دورة قاعدة النور">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <header class="page-header">
-        <div class="container">
-            <h1>تم استلام طلبك بنجاح!</h1>
-            <p class="subtitle">شكراً لتسجيلك في دورة قاعدة النور</p>
-        </div>
-    </header>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="script.js"></script>
     
-    <main class="main-content">
-        <div class="container">
-            <section class="success-message">
+    <style>
+        .confirmation-page {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+        
+        .confirmation-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .confirmation-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            animation: slideUp 0.8s ease-out;
+            width: 100%;
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .success-header {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 3rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .success-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        
+        .confirmation-body {
+            padding: 3rem 2rem;
+        }
+        
+        .success-message {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .success-message h2 {
+            color: #27ae60;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            animation: slideInRight 0.6s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .timeline-item:nth-child(1) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.6s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.8s; }
+        
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .timeline-marker {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-left: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .timeline-marker.completed {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            box-shadow: 0 8px 20px rgba(39, 174, 96, 0.3);
+        }
+        
+        .timeline-marker.pending {
+            background: linear-gradient(135deg, #95a5a6 0%, #bdc3c7 100%);
+            color: white;
+            box-shadow: 0 8px 20px rgba(149, 165, 166, 0.3);
+        }
+        
+        .timeline-content {
+            flex: 1;
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 16px;
+            border-right: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .contact-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            border-color: #667eea;
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.2);
+        }
+        
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+        
+        .contact-button.whatsapp {
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            color: white;
+        }
+        
+        .contact-button.maps {
+            background: linear-gradient(135deg, #ea4335 0%, #c5221f 100%);
+            color: white;
+        }
+        
+        .final-cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .cta-button.primary {
+            background: white;
+            color: #667eea;
+        }
+        
+        .cta-button.secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .share-section {
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 16px;
+        }
+        
+        .share-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+        
+        @media (max-width: 768px) {
+            .confirmation-container {
+                padding: 1rem;
+                min-height: auto;
+                align-items: flex-start;
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .timeline-marker {
+                margin: 0 auto 1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body class="confirmation-page">
+    <div class="confirmation-container">
+        <div class="confirmation-card">
+            <header class="success-header">
                 <div class="success-icon">
-                    <span class="icon">✅</span>
+                    <i class="fas fa-check"></i>
                 </div>
-                <h2>تم استلام طلبك لدورة قاعدة النور</h2>
-                <p class="success-description">
-                    سيتم التواصل معك خلال 24 ساعة لتأكيد المجموعة وإرسال الرسوم
-                </p>
-            </section>
+                <h1>تم التسجيل بنجاح!</h1>
+                <p class="subtitle">شكراً لثقتكم في دورة قاعدة النور</p>
+            </header>
             
-            <section class="next-steps">
-                <h2>الخطوات التالية</h2>
-                <div class="steps-timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-marker completed">
-                            <span class="icon">✓</span>
+            <main class="confirmation-body">
+                <section class="success-message">
+                    <h2>تم استلام طلبك لدورة قاعدة النور</h2>
+                    <p class="success-description">
+                        سيتم التواصل معك خلال 24 ساعة لتأكيد المجموعة وإرسال الرسوم
+                    </p>
+                </section>
+                
+                <section class="timeline-section">
+                    <h2>الخطوات التالية</h2>
+                    <div class="steps-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker completed">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h3>تم استلام الطلب</h3>
+                                <p>لقد استلمنا طلب التسجيل الخاص بطفلك بنجاح</p>
+                            </div>
                         </div>
-                        <div class="timeline-content">
-                            <h3>تم استلام الطلب</h3>
-                            <p>لقد استلمنا طلب التسجيل الخاص بطفلك</p>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-marker pending">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h3>التواصل خلال 24 ساعة</h3>
+                                <p>سنتواصل معك على واتساب لتحديد موعد التقييم المجاني</p>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-marker pending">
-                            <span class="icon">📞</span>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-marker pending">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h3>تقييم المستوى</h3>
+                                <p>سيتم تقييم مستوى طفلك لتحديد المجموعة المناسبة</p>
+                            </div>
                         </div>
-                        <div class="timeline-content">
-                            <h3>التواصل خلال 24 ساعة</h3>
-                            <p>سنتواصل معك على واتساب لتحديد موعد التقييم</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-marker pending">
-                            <span class="icon">📝</span>
-                        </div>
-                        <div class="timeline-content">
-                            <h3>تقييم المستوى</h3>
-                            <p>سيتم تقييم مستوى طفلك لتحديد المجموعة المناسبة</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-marker pending">
-                            <span class="icon">🎯</span>
-                        </div>
-                        <div class="timeline-content">
-                            <h3>بدء الدورة</h3>
-                            <p>انضمام طفلك إلى المجموعة المناسبة وبدء الرحلة مع القرآن</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="contact-info">
-                <h2>معلومات التواصل</h2>
-                <div class="contact-cards">
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <span class="icon">💬</span>
-                        </div>
-                        <h3>واتساب</h3>
-                        <p>+962 791 951 134</p>
-                        <a href="https://wa.me/962791951134?text=لقد قمت بالتسجيل في دورة قاعدة النور وأريد الاستفسار عن التفاصيل" 
-                           class="contact-button whatsapp" 
-                           onclick="trackEvent('whatsapp_click')">
-                            فتح واتساب الآن
-                        </a>
-                    </div>
-                    
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <span class="icon">📍</span>
-                        </div>
-                        <h3>الموقع</h3>
-                        <p>مركز كفرعان القرآني<br>مقابل مسجد سعيد بن زيد</p>
-                        <a href="https://maps.google.com/?q=مركز+كفرعان+القرآني" 
-                           target="_blank" 
-                           class="contact-button maps" 
-                           onclick="trackEvent('maps_click')">
-                            الاتجاهات للمركز
-                        </a>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="important-notes">
-                <h2>ملاحظات هامة</h2>
-                <div class="notes-list">
-                    <div class="note-item">
-                        <span class="note-icon">📅</span>
-                        <div class="note-content">
-                            <h3>الجدول الزمني</h3>
-                            <p>أحد / ثلاثاء / خميس (مسائي) - ساعتان لكل جلسة</p>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-marker pending">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h3>بدء الدورة</h3>
+                                <p>انضمام طفلك إلى المجموعة المناسبة وبدء الرحلة مع القرآن</p>
+                            </div>
                         </div>
                     </div>
-                    
-                    <div class="note-item">
-                        <span class="note-icon">👥</span>
-                        <div class="note-content">
-                            <h3>المجموعات الصغيرة</h3>
-                            <p>حد أقصى 8 أطفال في كل مجموعة لضمان جودة التعليم</p>
+                </section>
+                
+                <section class="contact-section">
+                    <h2>معلومات التواصل</h2>
+                    <div class="contact-cards">
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <h3>واتساب</h3>
+                            <p>+962 791 951 134</p>
+                            <a href="https://wa.me/962791951134?text=لقد قمت بالتسجيل في دورة قاعدة النور وأريد الاستفسار عن التفاصيل" 
+                               class="contact-button whatsapp" 
+                               onclick="trackEvent('whatsapp_click')">
+                                <i class="fas fa-comment"></i>
+                                فتح واتساب الآن
+                            </a>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </div>
+                            <h3>الموقع</h3>
+                            <p>مركز كفرعان القرآني<br>مقابل مسجد سعيد بن زيد</p>
+                            <a href="https://maps.google.com/?q=مركز+كفرعان+القرآني" 
+                               target="_blank" 
+                               class="contact-button maps" 
+                               onclick="trackEvent('maps_click')">
+                                <i class="fas fa-directions"></i>
+                                الاتجاهات للمركز
+                            </a>
                         </div>
                     </div>
-                    
-                    <div class="note-item">
-                        <span class="note-icon">👩‍🏫</span>
-                        <div class="note-content">
-                            <h3>المعلمة</h3>
-                            <p>بإشراف المعلمة سميّه البعول المتخصصة في تعليم الأطفال</p>
-                        </div>
-                    </div>
-                    
-                    <div class="note-item">
-                        <span class="note-icon">💰</span>
-                        <div class="note-content">
-                            <h3>الرسوم</h3>
-                            <p>سيتم إرسال تفاصيل الرسوم الشهرية بعد تقييم مستوى الطفل</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="final-cta">
-                <div class="cta-content">
+                </section>
+                
+                <section class="final-cta">
                     <h2>هل لديك أي استفسارات؟</h2>
                     <p>نحن هنا لمساعدتك في كل خطوة من رحلة طفلك مع القرآن</p>
                     <div class="cta-buttons">
                         <a href="https://wa.me/962791951134?text=لقد قمت بالتسجيل في دورة قاعدة النور وأريد الاستفسار عن التفاصيل" 
                            class="cta-button primary" 
                            onclick="trackEvent('whatsapp_click')">
-                            <span class="icon">💬</span>
+                            <i class="fab fa-whatsapp"></i>
                             <span>فتح واتساب الآن</span>
                         </a>
                         <a href="index.html" class="cta-button secondary">
-                            <span class="icon">🏠</span>
+                            <i class="fas fa-home"></i>
                             <span>العودة للرئيسية</span>
                         </a>
                     </div>
-                </div>
-            </section>
-            
-            <section class="share-section">
-                <h2>شارك الخبر</h2>
-                <p>هل تعرف أهالي آخرين قد يهتمون بالدورة؟ شاركهم الخبر!</p>
-                <div class="share-buttons">
-                    <button class="share-button" onclick="shareOnWhatsApp()">
-                        <span class="icon">💬</span>
-                        <span>مشاركة على واتساب</span>
-                    </button>
-                    <button class="share-button" onclick="copyLink()">
-                        <span class="icon">🔗</span>
-                        <span>نسخ الرابط</span>
-                    </button>
-                </div>
-            </section>
+                    
+                    <!-- Manual WhatsApp fallback -->
+                    <div style="margin-top: 2rem; padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 12px;">
+                        <p style="margin-bottom: 1rem; font-size: 0.9rem;">إذا لم يفتح الواتساب تلقائياً، يمكنك نسخ الرقم والتواصل يدوياً:</p>
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                            <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 8px; font-family: monospace;">+962 791 951 134</span>
+                            <button onclick="copyPhoneNumber()" style="background: rgba(255,255,255,0.2); border: none; color: white; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; font-weight: 600;">
+                                <i class="fas fa-copy"></i> نسخ الرقم
+                            </button>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="share-section">
+                    <h2>شارك الخبر</h2>
+                    <p>هل تعرف أهالي آخرين قد يهتمون بالدورة؟ شاركهم الخبر!</p>
+                    <div class="share-buttons">
+                        <button class="share-button" onclick="shareOnWhatsApp()">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>مشاركة على واتساب</span>
+                        </button>
+                        <button class="share-button" onclick="copyLink()">
+                            <i class="fas fa-link"></i>
+                            <span>نسخ الرابط</span>
+                        </button>
+                    </div>
+                </section>
+            </main>
         </div>
-    </main>
+    </div>
     
     <script>
-        function trackEvent(eventName) {
-            if (typeof gtag !== 'undefined') {
-                gtag('event', eventName);
-            }
-            console.log('Event tracked:', eventName);
-        }
+        document.addEventListener('DOMContentLoaded', function() {
+            trackEvent('page_view', {
+                page_title: document.title,
+                page_location: window.location.href
+            });
+            trackEvent('conversion');
+        });
         
         function shareOnWhatsApp() {
             const url = window.location.origin;
@@ -199,7 +459,6 @@
                 alert('تم نسخ الرابط بنجاح!');
                 trackEvent('copy_link');
             }).catch(() => {
-                // Fallback for older browsers
                 const textArea = document.createElement('textarea');
                 textArea.value = url;
                 document.body.appendChild(textArea);
@@ -211,11 +470,53 @@
             });
         }
         
-        // Track page view
-        document.addEventListener('DOMContentLoaded', function() {
-            trackEvent('page_view');
-            trackEvent('conversion');
-        });
+        function copyPhoneNumber() {
+            const phoneNumber = '+962 791 951 134';
+            navigator.clipboard.writeText(phoneNumber).then(() => {
+                showNotification('تم نسخ رقم الواتساب بنجاح!', 'success');
+                trackEvent('copy_phone_number');
+            }).catch(() => {
+                const textArea = document.createElement('textarea');
+                textArea.value = phoneNumber;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                showNotification('تم نسخ رقم الواتساب بنجاح!', 'success');
+                trackEvent('copy_phone_number');
+            });
+        }
+        
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i> ${message}`;
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: ${type === 'success' ? 'linear-gradient(135deg, #27ae60 0%, #2ecc71 100%)' : 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'};
+                color: white;
+                padding: 1rem 2rem;
+                border-radius: 50px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                z-index: 1000;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                font-weight: 600;
+                animation: slideDown 0.3s ease-out;
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideUp 0.3s ease-out';
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }, 3000);
+        }
     </script>
 </body>
 </html>
